@@ -1,0 +1,33 @@
+.App {
+    background-image: url('assets/bg1.jpg');
+    width: 100%;
+    height: 100vh;
+    color: white;
+    display: flex;
+}
+
+.left {
+    width: 65%;
+    height: 100%;
+}
+
+.weather {
+    height: 90%;
+}
+
+.right {
+    width: 35%;
+    height: 100%;
+    background: rgb(37,38,38);
+    background: linear-gradient(0deg, rgba(37,38,38,1) 0%, rgba(87,86,84,1) 100%);  
+    opacity: 95%;
+}
+
+.another-location {
+    background-color: transparent;
+}
+
+.rainy {
+    background-image: url('assets/rainy.jpg');
+    background-size: cover;
+}
