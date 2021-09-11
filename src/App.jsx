@@ -127,12 +127,12 @@ function App() {
           </button>
         </div>
 
-        <div className="flex flex-col py-12 mx-12 space-y-6 border-b border-white">
-          <a href="#" onClick={dumai}>Dumai</a>
-          <a href="#" onClick={london}>London</a>
-          <a href="#" onClick={tokyo}>Tokyo</a>
-          <a href="#" onClick={paris}>Paris</a>
-          <a href="#" onClick={california}>California</a>
+        <div className="flex flex-col py-12 mx-12 items-start space-y-6 border-b border-white">
+          <button onClick={dumai}>Dumai</button>
+          <button onClick={london}>London</button>
+          <button onClick={tokyo}>Tokyo</button>
+          <button onClick={paris}>Paris</button>
+          <button onClick={california}>California</button>
         </div>
 
         
