@@ -176,7 +176,7 @@ function App() {
 
         <div className="h-full">
           {/* mode atas ukuran medium */}
-          {(typeof weather.main != "undefined") ? (
+          {/* {(typeof weather.main != "undefined") ? ( */}
             <div className="top lg:hidden h-4/6 pt-14 px-14">
               <div className="flex justify-between">
                 <p className="text-2xl -mt-2" name="date">{dateBuilder(new Date())}</p>
@@ -196,7 +196,7 @@ function App() {
                 </div>
               </div>
             </div>
-          ) : ('')} 
+          {/* ) : ('')}  */}
           
           {/* mode bawah ukuran medium */}
           <div className="bottom lg:hidden flex justify-between h-2/6 text-black px-8 py-8 space-x-5">
