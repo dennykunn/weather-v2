@@ -122,7 +122,7 @@ function App() {
           ) : ('')} 
 
           {/* mode atas ukuran medium */}
-          {(typeof weather.main != "undefined") ? (
+          {/* {(typeof weather.main != "undefined") ? (
             <div className="lg:hidden block pt-14 px-14">
               <div className="flex justify-between">
                 <p className="text-2xl -mt-2" name="date">{dateBuilder(new Date())}</p>
@@ -147,12 +147,12 @@ function App() {
                 <img className="-mb-5 lg:w-28 md:h-24 md:w-24 w-20 h-20" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
                 <p className="lg:text-lg md:text-base text-sm" name="describtion">{weather.weather[0].main}</p>
               </div> */}
-            </div>
-          ) : ('')}  
+            {/* </div>
+          ) : ('')}   */} */}
         </div>
         
         {/* mode bawah ukuran medium */}
-        <div className="lg:hidden flex justify-between bg-green-200 h-2/6 text-black px-14 py-8 space-x-5">
+        {/* <div className="lg:hidden flex justify-between bg-green-200 h-2/6 text-black px-14 py-8 space-x-5">
           <div className="flex">
             <div className="flex flex-col items-center justify-center pr-8">
               <img className="w-36 h-36" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
@@ -184,7 +184,7 @@ function App() {
               <p className="text-3xl flex items-center">824</p>
             </div>
           </div>
-        </div> 
+        </div>  */}
 
         <div className="lg-right lg:w-1/3 md:w-2/6 w-full lg:h-full lg:block hidden">
           <div className="flex">
