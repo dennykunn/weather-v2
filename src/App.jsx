@@ -123,7 +123,7 @@ function App() {
 
           {/* mode atas ukuran medium */}
           {(typeof weather.main != "undefined") ? (
-            <div className="top lg:hidden block pt-14 px-14">
+            <div className="lg:hidden block pt-14 px-14">
               <div className="flex justify-between">
                 <p className="text-2xl -mt-2" name="date">{dateBuilder(new Date())}</p>
 
