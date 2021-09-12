@@ -147,6 +147,10 @@ function App() {
             <div className="flex flex-col py-12 mx-12 space-y-6 border-b border-white">
               <h4 className="font-semibold text-lg">Weather Details</h4>
               <div className="flex justify-between">
+                <p>Country</p>
+                <span>{weather.sys.country}</span>
+              </div>
+              <div className="flex justify-between">
                 <p>Cloudy</p>
                 <span>{weather.clouds.all}%</span>
               </div>
@@ -159,8 +163,12 @@ function App() {
                 <span>{weather.wind.speed}km/h</span>
               </div>
               <div className="flex justify-between">
-                <p>Rain</p>
-                <span>0mm</span>
+                <p>Temperature Min</p>
+                <span>{weather.main.temp_min}&deg;C</span>
+              </div>
+              <div className="flex justify-between">
+                <p>Temperature Max</p>
+                <span>{weather.main.temp_max}&deg;C</span>
               </div>
             </div>
           ) : ('')} 
