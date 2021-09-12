@@ -202,7 +202,7 @@ function App() {
           <div className="flex">
             <div className="flex flex-col items-center justify-center pr-8">
               <img className="w-36 h-36" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
-              <p className="-mt-4 text-lg" name="describtion">{weather.weather[0].description}</p>
+              <p className="-mt-4 text-lg" name="describtion">{weather.weather[0].main}</p>
             </div>  
             <div className="flex flex-col items-center justify-center space-y-5">
               <p className="text-5xl flex items-center">42&deg;<div className="w-5 mx-3 border-t border-pink-500"></div><span className="text-xl">External</span></p>
@@ -224,7 +224,7 @@ function App() {
               <p className="text-3xl flex items-center">527.04</p>
             </div>
             <div className="flex flex-col items-center justify-center">
-              <div className="w-12 h-12 rounded-full bg-green-500 bg-opacity-30"></div>
+              <div className="w-12 h-12 rounded-full bg-yellow-500 bg-opacity-30"></div>
               <p className="mt-2">TVOC Levels (ppb)</p>
               <div className="w-5 my-4 border-t border-pink-500"></div>
               <p className="text-3xl flex items-center">824</p>
