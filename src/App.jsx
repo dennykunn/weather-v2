@@ -174,7 +174,7 @@ function App() {
           ) : ('')} 
         </div>
 
-        <div className="h-full">
+        <div className="bungkus h-full">
           {/* mode atas ukuran medium */}
           {(typeof weather.main != "undefined") ? (
             <div className="top lg:hidden h-4/6 pt-14 px-14">
