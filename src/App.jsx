@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
+import moment from 'moment'
 
 const api = {
   key: "57ec85b42d5fdc10272837a5ab565d55",
@@ -36,17 +37,17 @@ function App() {
     });
   }
 
-  const dateBuilder = (d) => {
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", ];
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sadurday", ]
+  // const dateBuilder = (d) => {
+  //   let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", ];
+  //   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sadurday", ]
 
-    let day = days[d.getDay()];
-    let date = d.getDate();
-    let month = months[d.getMonth()];
-    let year = d.getFullYear();
+  //   let day = days[d.getDay()];
+  //   let date = d.getDate();
+  //   let month = months[d.getMonth()];
+  //   let year = d.getFullYear();
 
-    return `${day} ${date} ${month} ${year}`
-  }
+  //   return `${day} ${date} ${month} ${year}`
+  // }
 
   const dumai = () => {
     fetch(`${api.base}weather?q=Dumai&units=metric&APPID=${api.key}`)
@@ -98,6 +99,9 @@ function App() {
     });
   }
 
+  const dateTime = new Date()
+
+
   return (
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp < 12) ? 'App rainy' : 'App') : 'App'}>
       <div className="flex w-full h-full">
@@ -108,7 +112,7 @@ function App() {
               <p className="text-8xl font-semibold">{Math.round(weather.main.temp)}&deg;C</p>
               <div className="">
                 <p className="-ml-1 text-6xl font-semibold">{weather.name}</p>
-                <p className="text-lg">{dateBuilder(new Date())}</p>
+                <p className="text-md">{moment(dateTime).format('llll')}</p>
               </div>
               <div className="flex flex-col items-center">
                 <img className="-mb-5" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description}/>
