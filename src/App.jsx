@@ -118,7 +118,7 @@ function App() {
           ) : ('')} 
         </div>
 
-        <div className="right">
+        <div className="right h-full">
           <div className="flex">
             <input className="another-location w-full text-white border-b border-white mx-12 pt-12 outline-none placeholder-gray-200" type="text" placeholder="Another location" onChange={e => setQuery(e.target.value)} value={query} onKeyPress={enter}/>
             <button className="w-32 h-24 bg-gray-50" onClick={search}>
