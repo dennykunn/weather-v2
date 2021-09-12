@@ -30,14 +30,9 @@
     background: linear-gradient(0deg, rgb(124, 124, 124) 0%, rgba(87,86,84,1) 100%);
 }
 
-@media screen and (min-width: 320px) and (max-width: 800px) and (orientation: landscape) {
+@media only screen and (orientation:portrait){
     body {
-      transform: rotate(-90deg);
-      transform-origin: left top;
-      width: 100vh;
-      overflow-x: hidden;
-      position: absolute;
-      top: 100%;
-      left: 0;
+        height: 100vw;
+        transform: rotate(90deg);
     }
-  }
+}
