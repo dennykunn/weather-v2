@@ -11,8 +11,6 @@
 }
 
 .right {
-    /* width: 35%; */
-    background: rgb(37,38,38);
     background: linear-gradient(0deg, rgba(37,38,38,1) 0%, rgba(87,86,84,1) 100%);
 }
 
@@ -23,4 +21,11 @@
 .rainy {
     background-image: url('assets/rainy.jpg');
     background-size: cover;
+}
+
+.top {
+    background-color: transparent;
+}
+.bottom {
+    background: linear-gradient(0deg, rgb(124, 124, 124) 0%, rgba(87,86,84,1) 100%);
 }

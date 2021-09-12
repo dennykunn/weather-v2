@@ -199,7 +199,7 @@ function App() {
           ) : ('')} 
           
           {/* mode bawah ukuran medium */}
-          <div className="bottom lg:hidden flex justify-between bg-green-200 h-2/6 text-black px-8 py-8 space-x-5">
+          <div className="bottom lg:hidden flex justify-between h-2/6 text-black px-8 py-8 space-x-5">
             <div className="flex">
               <div className="flex flex-col items-center justify-center pr-8">
                 <img className="w-36 h-36" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
