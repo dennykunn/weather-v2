@@ -100,7 +100,7 @@ function App() {
 
   return (
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp < 12) ? 'App rainy' : 'App') : 'App'}>
-      <div className="flex w-full">
+      <div className="flex w-full h-full flex-row justify-between">
         <div className="left py-12 px-24">
           <h3 className="font-bold">the.weather</h3>
           {(typeof weather.main != "undefined") ? (
