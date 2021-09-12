@@ -105,7 +105,7 @@ function App() {
   return (
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp < 12) ? 'App rainy' : 'App') : 'App'}>
       <div className="flex lg:flex-row flex-col w-full h-full">
-        <div className="left lg:w-2/3 w-full lg:py-12 lg:h-full h-4/6 lg:px-20">
+        <div className="left lg:w-2/3 w-full lg:py-12 lg:h-full lg:px-20">
           <h3 className="font-bold text-lg lg:block hidden">the.weather</h3>
           {(typeof weather.main != "undefined") ? (
             <div className="weather flex flex-row lg:items-end space-x-8 lg:flex hidden">
@@ -121,29 +121,31 @@ function App() {
             </div>
           ) : ('')} 
 
-          {/* mode atas ukuran medium */}
-          {(typeof weather.main != "undefined") ? (
-            <div className="lg:hidden block pt-14 px-14">
-              <div className="flex justify-between">
-                <p className="text-2xl -mt-2" name="date">{dateBuilder(new Date())}</p>
+          
+        </div>
 
-                <div className="flex h-12 rounded-full bg-white">
-                  <input className="w-64 px-5 rounded-l-full text-black outline-none placeholder-gray-600" type="text" placeholder="Another location..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={enter}/>
-                  <button className=" px-4" onClick={search}>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="xl:h-7 xl:w-7 h-6 w-6 mx-auto stroke-current text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                  </button>
-                </div>
+        {/* mode atas ukuran medium */}
+        {(typeof weather.main != "undefined") ? (
+          <div className="lg:hidden h-4/6 pt-14 px-14">
+            <div className="flex justify-between">
+              <p className="text-2xl -mt-2" name="date">{dateBuilder(new Date())}</p>
 
-                <div className="text-right -mt-3">
-                  <p className="-ml-1 text-6xl" name="city">{weather.name}</p>
-                  <p className="text-xl">{weather.sys.country}</p>
-                </div>
+              <div className="flex h-12 rounded-full bg-white">
+                <input className="w-64 px-5 rounded-l-full text-black outline-none placeholder-gray-600" type="text" placeholder="Another location..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={enter}/>
+                <button className=" px-4" onClick={search}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="xl:h-7 xl:w-7 h-6 w-6 mx-auto stroke-current text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="text-right -mt-3">
+                <p className="-ml-1 text-6xl" name="city">{weather.name}</p>
+                <p className="text-xl">{weather.sys.country}</p>
               </div>
             </div>
-          ) : ('')} 
-        </div>
+          </div>
+        ) : ('')} 
         
         {/* mode bawah ukuran medium */}
         <div className="lg:hidden flex justify-between bg-green-200 h-2/6 text-black px-14 py-8 space-x-5">
@@ -179,6 +181,7 @@ function App() {
             </div>
           </div>
         </div> 
+        {/* batas */}
 
         <div className="lg-right lg:w-1/3 md:w-2/6 w-full lg:h-full lg:block hidden">
           <div className="flex">
