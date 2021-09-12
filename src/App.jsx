@@ -47,6 +47,8 @@ function App() {
   //   let year = d.getFullYear();
 
   //   return `${day} ${date} ${month} ${year}`
+
+      // -- {dateBuilder(new Date())} --
   // }
 
   const dumai = () => {
@@ -109,14 +111,14 @@ function App() {
           <h3 className="font-bold">the.weather</h3>
           {(typeof weather.main != "undefined") ? (
             <div className="weather flex flex-row items-end space-x-8">
-              <p className="text-8xl font-semibold">{Math.round(weather.main.temp)}&deg;C</p>
+              <p className="text-8xl font-semibold" name="temp">{Math.round(weather.main.temp)}&deg;C</p>
               <div className="">
-                <p className="-ml-1 text-6xl font-semibold">{weather.name}</p>
-                <p className="text-md">{moment(dateTime).format('llll')}</p>
+                <p className="-ml-1 text-6xl font-semibold" name="city">{weather.name}</p>
+                <p className="text-md" name="date">{moment(dateTime).format('llll')}</p>
               </div>
               <div className="flex flex-col items-center">
-                <img className="-mb-5" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description}/>
-                <p className="text-lg">{weather.weather[0].main}</p>
+                <img className="-mb-5" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
+                <p className="text-lg" name="describtion">{weather.weather[0].main}</p>
               </div>
             </div>
           ) : ('')} 
