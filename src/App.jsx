@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
-// import moment from 'moment'
+import moment from 'moment'
 
 const api = {
   key: "57ec85b42d5fdc10272837a5ab565d55",
@@ -99,24 +99,25 @@ function App() {
     });
   }
 
-  // const dateTime = new Date()
+  // let time = new Date().toLocaleString();
+  const time = moment().format('LT');
 
 
   return (
-    <div className={(typeof weather.main != "undefined") ? ((weather.main.temp < 12) ? 'App rainy' : 'App') : 'App'}>
-      <div className="flex lg:flex-row flex-col w-full h-full">
-        <div className="left lg:w-2/3 w-full lg:py-12 lg:h-full lg:px-20">
-          <h3 className="font-bold text-lg lg:block hidden">the.weather</h3>
+    <div className={(typeof weather.main != "undefined") ? ((weather.main.temp <= 12) ? 'App rainy' : 'App') : 'App'}>
+      <div className="flex md:flex-row flex-col w-full h-full">
+        <div className="left md:w-2/3 w-full lg:py-12 md:py-10 py-8 md:h-full xl:px-20 lg:px-16 px-12 md:block hidden">
+          <h3 className="font-bold text-lg">the.weather</h3>
           {(typeof weather.main != "undefined") ? (
-            <div className="weather flex flex-row lg:items-end space-x-8 lg:flex hidden">
-              <p className="text-8xl font-semibold" name="temp">{Math.round(weather.main.temp)}&deg;C</p>
+            <div className="weather flex flex-row md:items-end lg:space-x-8 space-x-6 md:flex hidden">
+              <p className="xl:text-8xl lg:text-7xl text-6xl font-semibold" name="temp">{Math.round(weather.main.temp)}&deg;C</p>
               <div>
-                <p className="-ml-1 text-6xl font-semibold" name="city">{weather.name}</p>
-                <p className="text-base" name="date">{dateBuilder(new Date())}</p>
+                <p className="-ml-1 xl:text-6xl lg:text-5xl text-4xl font-semibold" name="city">{weather.name}</p>
+                <p className="lg:text-base text-sm" name="date">{dateBuilder(new Date())}</p>
               </div>
               <div className="flex flex-col items-center">
-                <img className="-mb-5 w-28 h-28" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
-                <p className="text-lg" name="describtion">{weather.weather[0].main}</p>
+                <img className="-mb-5 lg:w-28 lg:h-28 w-24 h-24" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
+                <p className="lg:text-lg text-base" name="describtion">{weather.weather[0].main}</p>
               </div>
             </div>
           ) : ('')}
@@ -124,17 +125,17 @@ function App() {
 
         
 
-        <div className="right lg:w-1/3 md:w-2/6 w-full lg:h-full lg:block hidden">
+        <div className="right lg:w-1/3 md:w-2/6 w-full lg:h-full md:block hidden">
           <div className="flex">
-            <input className="another-location w-full text-white border-b border-white mx-12 pt-12 outline-none placeholder-gray-200 xl:text-lg text-base" type="text" placeholder="Another location..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={enter}/>
-            <button className="xl:w-32 xl:h-24 w-28 h-20 bg-gray-50" onClick={search}>
-              <svg xmlns="http://www.w3.org/2000/svg" className="xl:h-7 xl:w-7 h-6 w-6 mx-auto stroke-current text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <input className="another-location w-full text-white border-b border-white xl:pt-12 xl:mx-12 lg:pt-10 lg:mx-10 pt-8 mx-8 outline-none placeholder-gray-200 xl:text-lg text-base" type="text" placeholder="Another location..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={enter}/>
+            <button className="xl:w-32 xl:h-24 lg:w-28 lg:h-20 w-24 h-16 bg-gray-50" onClick={search}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="xl:h-7 xl:w-7 lg:h-6 lg:w-6 md:w-5 md:h-5 w-4 h-4 mx-auto stroke-current text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </button>
           </div>
 
-          <div className="flex flex-col py-12 mx-12 items-start space-y-6 border-b border-white xl:text-lg text-base">
+          <div className="flex flex-col xl:py-12 xl:mx-12 lg:py-10 lg:mx-10 py-8 mx-8 items-start lg:space-y-6 space-y-4 border-b border-white xl:text-lg lg:text-base text-sm">
             <button onClick={dumai}>Dumai</button>
             <button onClick={london}>London</button>
             <button onClick={tokyo}>Tokyo</button>
@@ -144,8 +145,8 @@ function App() {
 
           
           {(typeof weather.main != "undefined") ? (
-            <div className="flex flex-col py-12 mx-12 space-y-6 border-b border-white xl:text-lg text-base">
-              <h4 className="font-semibold xl:text-xl text-lg">Weather Details</h4>
+            <div className="flex flex-col xl:py-12 xl:mx-12 lg:py-10 lg:mx-10 py-8 mx-8 lg:space-y-6 space-y-4 border-b border-white xl:text-lg lg:text-base text-sm">
+              <h4 className="font-semibold xl:text-xl lg:text-lg text-base">Weather Details</h4>
               <div className="flex justify-between">
                 <p>Country</p>
                 <span>{weather.sys.country}</span>
@@ -174,62 +175,69 @@ function App() {
           ) : ('')} 
         </div>
 
-        <div className="bungkus h-full">
+        <div className={(typeof weather.main != "undefined") ? ((weather.main.temp <= 12) ? 'bungkus rainy' : 'bungkus') : 'bungkus'}>
           {/* mode atas ukuran medium */}
           {(typeof weather.main != "undefined") ? (
-            <div className="top lg:hidden h-4/6 pt-14 px-14">
+            <div className="top md:hidden sm:pt-8 sm:px-8 pt-6 px-6">
               <div className="flex justify-between">
-                <p className="text-2xl -mt-2" name="date">{dateBuilder(new Date())}</p>
-
-                <div className="flex h-12 rounded-full bg-white">
-                  <input className="w-64 px-5 rounded-l-full text-black outline-none placeholder-gray-600" type="text" placeholder="Another location..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={enter}/>
-                  <button className=" px-4" onClick={search}>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="xl:h-7 xl:w-7 h-6 w-6 mx-auto stroke-current text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                  </button>
+                <div className="space-y-1">
+                  <div className="text-4xl">{time}</div>
+                  <p className="text-lg -mt-2" name="date">{dateBuilder(new Date())}</p>
                 </div>
-
-                <div className="text-right -mt-3">
-                  <p className="-ml-1 text-6xl" name="city">{weather.name}</p>
+                <div className="text-rightspace-y-1">
+                  <p className="text-4xl" name="city">{weather.name}</p>
                   <p className="text-xl">{weather.sys.country}</p>
                 </div>
               </div>
             </div>
           ) : ('')} 
-          
+
+          {/* search mode <md */}
+          {(typeof weather.main != "undefined") ? (
+            <div className="center pb-4 flex items-end justify-center md:hidden flex">
+              <div className="flex sm:w-80 h-12 w-72 items-center justify-between rounded-full bg-white">
+                <input className=" px-5 rounded-l-full text-black outline-none placeholder-gray-600" type="text" placeholder="Another location..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={enter}/>
+                <button className="px-4" onClick={search}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 stroke-current text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          ) : ('')} 
+
           {/* mode bawah ukuran medium */}
           {(typeof weather.main != "undefined") ? (
-            <div className="bottom lg:hidden flex justify-between h-2/6 text-black px-8 py-8 space-x-5">
+            <div className="bottom md:hidden flex justify-between text-black sm:px-8 sm:py-8 px-2 py-6 sm:space-x-5 space-x-4">
               <div className="flex">
                 <div className="flex flex-col justify-center items-center">
-                  <img className="-mt-10 w-32 h-40" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
-                  <p className="-mt-8 text-lg" name="describtion">{weather.weather[0].main}</p>
+                  <img className="-mt-8 sm:w-32 sm:h-32 w-24 h-24" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
+                  <p className="sm:-mt-8 -mt-5 sm:text-lg text-base" name="describtion">{weather.weather[0].main}</p>
                 </div> 
                 <div className="flex flex-col items-center justify-center space-y-5">
-                  <p className="text-5xl flex items-center">{weather.main.temp_min}&deg;<div className="w-5 mx-3 border-t border-pink-500"></div><span className="text-xl">Temp Max</span></p>
-                  <p className="text-5xl flex items-center">{weather.main.temp_min}&deg;<div className="w-5 mx-3 border-t border-pink-500"></div><span className="text-xl">Temp Min</span></p>
+                  <p className="sm:text-4xl text-3xl flex items-center">{weather.main.temp_max}&deg;<div className="sm:w-3 w-2 sm:mx-3 mx-2 border-t border-pink-500"></div><span className="sm:text-base text-sm">TempMax</span></p>
+                  <p className="sm:text-4xl text-3xl flex items-center">{weather.main.temp_min}&deg;<div className="sm:w-3 w-2 sm:mx-3 mx-2 border-t border-pink-500"></div><span className="sm:text-base text-sm">TempMin</span></p>
                 </div>
               </div>
 
-              <div className="flex space-x-6">
+              <div className="flex  text-center">
                 <div className="flex flex-col items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-blue-500 bg-opacity-30"></div>
-                  <p className="mt-2">Humidity (%)</p>
-                  <div className="w-5 my-4 border-t border-pink-500"></div>
-                  <p className="text-3xl flex items-center">{weather.main.humidity}&deg;</p>
+                  <div className="sm:w-10 sm:h-10 w-8 h-8 rounded-full bg-blue-500 bg-opacity-30"></div>
+                  <p className="mt-2 font-semibold sm:text-sm text-xs">Humidity(%)</p>
+                  <div className="sm:w-4 w-3 sm:my-2 my-1 border-t border-pink-500"></div>
+                  <p className="sm:text-2xl text-xl flex items-center">{weather.main.humidity}&deg;</p>
+                </div>
+                <div className="flex flex-col items-center justify-center mx-4">
+                  <div className="sm:w-10 sm:h-10 w-8 h-8 rounded-full bg-green-500 bg-opacity-30"></div>
+                  <p className="mt-2 font-semibold sm:text-sm text-xs">Wind(km/h)</p>
+                  <div className="sm:w-4 w-3 sm:my-2 my-1 border-t border-pink-500"></div>
+                  <p className="sm:text-2xl text-xl flex items-center">{weather.wind.speed}</p>
                 </div>
                 <div className="flex flex-col items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-green-500 bg-opacity-30"></div>
-                  <p className="mt-2">Wind (km/h)</p>
-                  <div className="w-5 my-4 border-t border-pink-500"></div>
-                  <p className="text-3xl flex items-center">{weather.wind.speed}</p>
-                </div>
-                <div className="flex flex-col items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-yellow-500 bg-opacity-30"></div>
-                  <p className="mt-2">Cloudy (%)</p>
-                  <div className="w-5 my-4 border-t border-pink-500"></div>
-                  <p className="text-3xl flex items-center">{weather.clouds.all}</p>
+                  <div className="sm:w-10 sm:h-10 w-8 h-8 rounded-full bg-yellow-500 bg-opacity-30"></div>
+                  <p className="mt-2 font-semibold sm:text-sm text-xs">Cloudy(%)</p>
+                  <div className="sm:w-4 w-3 sm:my-2 my-1 border-t border-pink-500"></div>
+                  <p className="sm:text-2xl text-xl flex items-center">{weather.clouds.all}</p>
                 </div>
               </div>
             </div> 
