@@ -105,7 +105,7 @@ function App() {
 
   return (
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp <= 12) ? 'App rainy' : 'App') : 'App'}>
-      <div className="flex md:flex-row flex-col w-full h-full">
+      <div className="max-w-screen-xl flex md:flex-row flex-col w-full h-full">
         <div className="left md:w-2/3 w-full lg:py-12 md:py-10 py-8 md:h-full xl:px-20 lg:px-16 px-12 md:block hidden">
           <h3 className="font-bold text-lg">the.weather</h3>
           {(typeof weather.main != "undefined") ? (
@@ -195,9 +195,9 @@ function App() {
           {/* search mode <md */}
           {(typeof weather.main != "undefined") ? (
             <div className="center pb-4 items-end justify-center md:hidden flex">
-              <div className="flex sm:w-80 h-12 w-72 items-center justify-between rounded-full bg-white">
-                <input className=" px-5 rounded-l-full text-black outline-none placeholder-gray-600" type="text" placeholder="Another location..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={enter}/>
-                <button className="px-4" onClick={search}>
+              <div className="flex sm:w-80 h-12 w-72 items-center justify-between rounded-full bg-white px-5">
+                <input className="rounded-l-full text-black outline-none placeholder-gray-600" type="text" placeholder="Another location..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={enter}/>
+                <button onClick={search}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 stroke-current text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
@@ -211,7 +211,7 @@ function App() {
             <div className="bottom md:hidden flex justify-between text-black sm:px-8 sm:py-8 px-4 py-6 sm:space-x-5 space-x-4">
               <div className="flex">
                 <div className="flex flex-col justify-center items-center ">
-                  <img className="sm:-mt-8 -mt-3 sm:w-32 sm:h-32 w-20 h-20" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
+                  <img className="sm:-mt-8 -mt-5 sm:w-32 sm:h-32 w-20 h-20" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
                   <p className="sm:-mt-8 -mt-4 sm:text-lg text-sm font-semibold" name="describtion">{weather.weather[0].main}</p>
                 </div> 
                 <div className="flex flex-col items-center justify-center space-y-5">
