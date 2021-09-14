@@ -211,11 +211,11 @@ function App() {
             <div className="bottom md:hidden flex justify-between text-black sm:px-8 sm:py-8 px-4 py-6 sm:space-x-5 space-x-4">
               <div className="flex">
                 <div className="flex flex-col justify-center items-center ">
-                  <img className="-mt-8 sm:w-32 sm:h-32 w-20 h-20" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
+                  <img className="sm:-mt-8 -mt-3 sm:w-32 sm:h-32 w-20 h-20" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
                   <p className="sm:-mt-8 -mt-4 sm:text-lg text-sm font-semibold" name="describtion">{weather.weather[0].main}</p>
                 </div> 
                 <div className="flex flex-col items-center justify-center space-y-5">
-                  <div className="sm:text-4xl text-3xl flex sm:flex-col flex-row justify-center items-center sm:space-x-0 space-x-3">
+                  <div className="sm:text-4xl text-2xl flex sm:flex-col flex-row justify-center items-center sm:space-x-0 space-x-3">
                     <div className="flex sm:flex-row flex-col items-center">
                       <p>{weather.main.temp_max}&deg;</p>
                       <div className="w-3 sm:mx-3 my-2 border-t border-pink-500">
