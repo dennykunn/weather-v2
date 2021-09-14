@@ -192,7 +192,7 @@ function App() {
             </div>
           ) : ('')} 
 
-          {/* search mode <md */}
+          {/* search mode dibawah ukuran md */}
           {(typeof weather.main != "undefined") ? (
             <div className="center pb-4 items-end justify-center md:hidden flex">
               <div className="flex sm:w-80 h-12 w-72 items-center justify-between rounded-full bg-white px-5">
