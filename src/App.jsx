@@ -233,7 +233,7 @@ function App() {
                   <div className="sm:w-4 w-3 sm:my-2 my-2 border-t border-pink-500"></div>
                   <p className="sm:text-2xl text-xl flex items-center">{weather.wind.speed}</p>
                 </div>
-                <div className="flex flex-col items-center justify-center">
+                <div className="sm:flex hidden flex-col items-center justify-center">
                   <div className="w-10 h-10 rounded-full bg-yellow-500 bg-opacity-30"></div>
                   <p className="mt-3 font-semibold sm:text-sm text-xs">Cloudy(%)</p>
                   <div className="sm:w-4 w-3 sm:my-2 my-2 border-t border-pink-500"></div>
