@@ -235,7 +235,6 @@ function App() {
               <div className="flex  text-center">
                 <div className="flex flex-col items-center justify-center">
                   <div className="w-12 h-12 rounded-full bg-blue-500 bg-opacity-30">
-                  <image className="w-8 h-8 mt-2 mx-auto" src="https://img.icons8.com/fluency/48/000000/wet.png"/>
                   </div>
                   <p className="mt-3 font-semibold sm:text-sm text-xs">Humidity(%)</p>
                   <div className="sm:w-4 w-3 sm:my-2 my-2 border-t border-pink-500"></div>
@@ -243,7 +242,6 @@ function App() {
                 </div>
                 <div className="flex flex-col items-center justify-center mx-6">
                   <div className="w-12 h-12 rounded-full bg-green-500 bg-opacity-30">
-                    <image className="w-8 h-8 mt-2 mx-auto" src="https://img.icons8.com/color-glass/100/000000/wind.png"/>
                   </div>
                   <p className="mt-3 font-semibold sm:text-sm text-xs">Wind(km/h)</p>
                   <div className="sm:w-4 w-3 sm:my-2 my-2 border-t border-pink-500"></div>
@@ -251,7 +249,6 @@ function App() {
                 </div>
                 <div className="flex flex-col items-center justify-center">
                   <div className="w-12 h-12 rounded-full bg-blue-200 bg-opacity-30">
-                    <image className="w-8 h-8 mt-2 mx-auto" src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-cloudy-weather-those-icons-lineal-color-those-icons-1.png"/>
                   </div>
                   <p className="mt-3 font-semibold sm:text-sm text-xs">Cloudy(%)</p>
                   <div className="sm:w-4 w-3 sm:my-2 my-2 border-t border-pink-500"></div>
