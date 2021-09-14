@@ -208,14 +208,14 @@ function App() {
 
           {/* mode bawah ukuran medium */}
           {(typeof weather.main != "undefined") ? (
-            <div className="bottom md:hidden flex justify-between text-black sm:px-8 sm:py-8 px-4 py-6 sm:space-x-5 space-x-4">
-              <div className="flex">
+            <div className="bottom md:hidden flex justify-between text-black sm:px-8 sm:py-8 px-4 py-2 sm:space-x-5 space-x-4">
+              <div className="flex sm:flex-row flex-col items-center sm:space-y-0 space-y-3">
                 <div className="flex flex-col justify-center items-center ">
-                  <img className="sm:-mt-8 -mt-5 sm:w-32 sm:h-32 w-20 h-20" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
-                  <p className="sm:-mt-8 -mt-4 sm:text-lg text-sm font-semibold" name="describtion">{weather.weather[0].main}</p>
+                  <img className="sm:-mt-8 -mt-0 sm:w-32 sm:h-32 w-24 h-24" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
+                  <p className="sm:-mt-8 -mt-5 text-lg font-semibold" name="describtion">{weather.weather[0].main}</p>
                 </div> 
                 <div className="flex flex-col items-center justify-center space-y-5">
-                  <div className="sm:text-4xl text-2xl flex sm:flex-col flex-row justify-center items-center sm:space-x-0 space-x-3">
+                  <div className="sm:text-4xl text-3xl flex sm:flex-col flex-row justify-center items-center sm:space-x-0 space-x-3">
                     <div className="flex sm:flex-row flex-col items-center">
                       <p>{weather.main.temp_max}&deg;</p>
                       <div className="w-3 sm:mx-3 my-2 border-t border-pink-500">
@@ -234,19 +234,25 @@ function App() {
 
               <div className="flex  text-center">
                 <div className="flex flex-col items-center justify-center">
-                  <div className="w-10 h-10 rounded-full bg-blue-500 bg-opacity-30"></div>
+                  <div className="w-12 h-12 rounded-full bg-blue-500 bg-opacity-30">
+                  <img className="w-8 h-8 mt-2 mx-auto" src="https://img.icons8.com/fluency/48/000000/wet.png"/>
+                  </div>
                   <p className="mt-3 font-semibold sm:text-sm text-xs">Humidity(%)</p>
                   <div className="sm:w-4 w-3 sm:my-2 my-2 border-t border-pink-500"></div>
                   <p className="sm:text-2xl text-xl flex items-center">{weather.main.humidity}&deg;</p>
                 </div>
-                <div className="flex flex-col items-center justify-center mx-4">
-                  <div className="w-10 h-10 rounded-full bg-green-500 bg-opacity-30"></div>
+                <div className="flex flex-col items-center justify-center mx-6">
+                  <div className="w-12 h-12 rounded-full bg-green-500 bg-opacity-30">
+                    <img className="w-8 h-8 mt-2 mx-auto" src="https://img.icons8.com/color-glass/100/000000/wind.png"/>
+                  </div>
                   <p className="mt-3 font-semibold sm:text-sm text-xs">Wind(km/h)</p>
                   <div className="sm:w-4 w-3 sm:my-2 my-2 border-t border-pink-500"></div>
                   <p className="sm:text-2xl text-xl flex items-center">{weather.wind.speed}</p>
                 </div>
-                <div className="sm:flex hidden flex-col items-center justify-center">
-                  <div className="w-10 h-10 rounded-full bg-yellow-500 bg-opacity-30"></div>
+                <div className="flex flex-col items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-blue-200 bg-opacity-30">
+                    <img className="w-8 h-8 mt-2 mx-auto" src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-cloudy-weather-those-icons-lineal-color-those-icons-1.png"/>
+                  </div>
                   <p className="mt-3 font-semibold sm:text-sm text-xs">Cloudy(%)</p>
                   <div className="sm:w-4 w-3 sm:my-2 my-2 border-t border-pink-500"></div>
                   <p className="sm:text-2xl text-xl flex items-center">{weather.clouds.all}</p>
