@@ -104,8 +104,8 @@ function App() {
 
 
   return (
-    <div className={(typeof weather.main != "undefined") ? ((weather.main.temp <= 12) ? 'App rainy' : 'App') : 'App'}>
-      <div className="max-w-screen-xl flex md:flex-row flex-col w-full h-full">
+    <div className={(typeof weather.main != "undefined") ? ((weather.main.temp <= 16) ? 'App rainy' : 'App') : 'App'}>
+      <div className="flex md:flex-row flex-col w-full h-full">
         <div className="left md:w-2/3 w-full lg:py-12 md:py-10 py-8 md:h-full xl:px-20 lg:px-16 px-12 md:block hidden">
           <h3 className="font-bold text-lg">the.weather</h3>
           {(typeof weather.main != "undefined") ? (
@@ -175,7 +175,7 @@ function App() {
           ) : ('')} 
         </div>
 
-        <div className={(typeof weather.main != "undefined") ? ((weather.main.temp <= 12) ? 'bungkus rainy' : 'bungkus') : 'bungkus'}>
+        <div className={(typeof weather.main != "undefined") ? ((weather.main.temp <= 16) ? 'bungkus rainy' : 'bungkus') : 'bungkus'}>
           {/* mode atas ukuran medium */}
           {(typeof weather.main != "undefined") ? (
             <div className="top md:hidden sm:pt-8 sm:px-8 pt-6 px-6">
