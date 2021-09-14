@@ -184,7 +184,7 @@ function App() {
                   <div className="text-4xl">{time}</div>
                   <p className="text-lg -mt-2" name="date">{dateBuilder(new Date())}</p>
                 </div>
-                <div className="text-rightspace-y-1">
+                <div className="text-right space-y-1">
                   <p className="text-4xl" name="city">{weather.name}</p>
                   <p className="text-xl">{weather.sys.country}</p>
                 </div>
@@ -210,13 +210,25 @@ function App() {
           {(typeof weather.main != "undefined") ? (
             <div className="bottom md:hidden flex justify-between text-black sm:px-8 sm:py-8 px-4 py-6 sm:space-x-5 space-x-4">
               <div className="flex">
-                <div className="flex flex-col justify-center items-center">
+                <div className="flex flex-col justify-center items-center ">
                   <img className="-mt-8 sm:w-32 sm:h-32 w-20 h-20" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
                   <p className="sm:-mt-8 -mt-4 sm:text-lg text-sm font-semibold" name="describtion">{weather.weather[0].main}</p>
                 </div> 
                 <div className="flex flex-col items-center justify-center space-y-5">
-                  <p className="sm:text-4xl text-2xl flex items-center">{weather.main.temp_max}&deg;<div className="sm:w-3 w-2 sm:mx-3 mx-2 border-t border-pink-500"></div><span className="sm:text-base text-sm">TempMax</span></p>
-                  <p className="sm:text-4xl text-2xl flex items-center">{weather.main.temp_min}&deg;<div className="sm:w-3 w-2 sm:mx-3 mx-2 border-t border-pink-500"></div><span className="sm:text-base text-sm">TempMin</span></p>
+                  <div className="sm:text-4xl text-3xl flex sm:flex-col flex-row justify-center items-center sm:space-x-0 space-x-3">
+                    <div className="flex sm:flex-row flex-col items-center">
+                      <p>{weather.main.temp_max}&deg;</p>
+                      <div className="w-3 sm:mx-3 my-2 border-t border-pink-500">
+                      </div>
+                      <span className="sm:text-base text-sm">TempMax</span>
+                    </div>
+                    <div className="sm:mt-4 flex sm:flex-row flex-col items-center">
+                      <p>{weather.main.temp_min}&deg;</p>
+                      <div className="w-3 sm:mx-3 my-2 border-t border-pink-500">
+                      </div>
+                      <span className="sm:text-base text-sm">TempMin</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
