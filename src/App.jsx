@@ -26,7 +26,7 @@ function App() {
       });
     }
   }
-
+  
   const search = () => {
     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
     .then(res => res.json())
@@ -101,7 +101,6 @@ function App() {
 
   // let time = new Date().toLocaleString();
   const time = moment().format('LT');
-
 
   return (
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp <= 16) ? 'App rainy' : 'App') : 'App'}>
@@ -206,7 +205,7 @@ function App() {
 
           {/* mode bawah ukuran medium */}
           {(typeof weather.main != "undefined") ? (
-            <div className="bottom md:hidden ">
+            <div className="bottom md:hidden flex flex-col justify-center">
               <div className="px-4 py-2 h-full">
                 <div className="flex justify-between h-full">
                   <div className="my-auto flex sm:flex-row flex-col">
