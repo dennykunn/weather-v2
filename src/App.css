@@ -36,15 +36,15 @@
 }
 
 .top {
-    height: 50%;
+    min-height: 50%;
 }
 
 .center {
-    height: 20%;
+    min-height: 15%;
 }
 
 .bottom {
-    height: 30%;
+    min-height: 35%;
     background: linear-gradient(0deg, rgb(17, 17, 17), rgb(114, 114, 114) 100%);
 }
 
