@@ -105,11 +105,11 @@ function App() {
 
   return (
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp <= 16) ? 'App rainy' : 'App') : 'App'}>
-      <div className="flex md:flex-row flex-col w-full h-full">
-        <div className="left md:w-2/3 w-full lg:py-12 md:py-10 py-8 md:h-full xl:px-20 lg:px-16 px-12 md:block hidden">
+      <div className="flex md:flex-row justify-between flex-col w-full h-full">
+        <div className="left w-full lg:py-12 md:py-10 py-8 w-6/12 md:h-full xl:px-20 lg:px-16 px-12 md:block hidden">
           <h3 className="font-bold text-lg">the.weather</h3>
           {(typeof weather.main != "undefined") ? (
-            <div className="weather flex-row md:items-end lg:space-x-8 space-x-6 md:flex hidden">
+            <div className="weather flex-row md:items-end lg:space-x-8 space-x-6 flex">
               <p className="xl:text-8xl lg:text-7xl text-6xl font-semibold" name="temp">{Math.round(weather.main.temp)}&deg;C</p>
               <div>
                 <p className="-ml-1 xl:text-6xl lg:text-5xl text-4xl font-semibold" name="city">{weather.name}</p>
@@ -123,9 +123,7 @@ function App() {
           ) : ('')}
         </div>
 
-        
-
-        <div className="right lg:w-1/3 md:w-2/6 w-full lg:h-full md:block hidden">
+        <div className="right w-6/12 lg:h-full md:block hidden">
           <div className="flex">
             <input className="another-location w-full text-white border-b border-white xl:pt-12 xl:mx-12 lg:pt-10 lg:mx-10 pt-8 mx-8 outline-none placeholder-gray-200 xl:text-lg text-base" type="text" placeholder="Another location..." onChange={e => setQuery(e.target.value)} value={query} onKeyPress={enter}/>
             <button className="xl:w-32 xl:h-24 lg:w-28 lg:h-20 w-24 h-16 bg-gray-50" onClick={search}>
@@ -175,18 +173,18 @@ function App() {
           ) : ('')} 
         </div>
 
-        <div className={(typeof weather.main != "undefined") ? ((weather.main.temp <= 16) ? 'bungkus rainy' : 'bungkus') : 'bungkus'}>
+        <div className="bungkus md:hidden">
           {/* mode atas ukuran medium */}
           {(typeof weather.main != "undefined") ? (
-            <div className="top md:hidden sm:pt-8 sm:px-8 pt-6 px-6">
+            <div className="top sm:pt-8 sm:px-8 pt-6 px-6">
               <div className="flex justify-between">
                 <div className="space-y-1">
-                  <div className="text-4xl">{time}</div>
-                  <p className="text-lg -mt-2" name="date">{dateBuilder(new Date())}</p>
+                  <div className="sm:text-5xl text-4xl">{time}</div>
+                  <p className="sm:text-lg text-base -mt-2" name="date">{dateBuilder(new Date())}</p>
                 </div>
                 <div className="text-right space-y-1">
-                  <p className="text-4xl" name="city">{weather.name}</p>
-                  <p className="text-xl">{weather.sys.country}</p>
+                  <p className="sm:text-5xl text-4xl" name="city">{weather.name}</p>
+                  <p className="sm:text-2xl text-xl">{weather.sys.country}</p>
                 </div>
               </div>
             </div>
@@ -208,54 +206,50 @@ function App() {
 
           {/* mode bawah ukuran medium */}
           {(typeof weather.main != "undefined") ? (
-            <div className="bottom md:hidden flex justify-between text-black sm:px-8 sm:py-8 px-4 py-2 sm:space-x-5 space-x-4">
-              <div className="flex sm:flex-row flex-col items-center sm:space-y-0 space-y-3">
-                <div className="flex flex-col justify-center items-center ">
-                  <img className="sm:-mt-8 -mt-0 sm:w-32 sm:h-32 w-24 h-24" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
-                  <p className="sm:-mt-8 -mt-5 text-lg font-semibold" name="describtion">{weather.weather[0].main}</p>
-                </div> 
-                <div className="flex flex-col items-center justify-center space-y-5">
-                  <div className="sm:text-4xl text-3xl flex sm:flex-col flex-row justify-center items-center sm:space-x-0 space-x-3">
-                    <div className="flex sm:flex-row flex-col items-center">
-                      <p>{weather.main.temp_max}&deg;</p>
-                      <div className="w-3 sm:mx-3 my-2 border-t border-pink-500">
-                      </div>
-                      <span className="sm:text-base text-sm">TempMax</span>
+            <div className="bottom md:hidden ">
+              <div className="px-4 py-2 h-full">
+                <div className="flex justify-between h-full">
+                  <div className="my-auto flex sm:flex-row flex-col">
+                    <div className="text-center">
+                      <img className="mx-auto" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} name="icon"/>
+                      <p className="text-base -mt-4" name="describtion">{weather.weather[0].main}</p>
                     </div>
-                    <div className="sm:mt-4 flex sm:flex-row flex-col items-center">
-                      <p>{weather.main.temp_min}&deg;</p>
-                      <div className="w-3 sm:mx-3 my-2 border-t border-pink-500">
+                    <div className="my-auto sm:ml-4 ml-0">
+                      <div className="flex items-center sm:mt-0 mt-2">
+                        <p className="sm:text-4xl text-2xl">{weather.main.temp_max}&deg;</p>
+                        <div className="sm:w-4 w-3 border-t-2 mx-3 border-pink-600"></div>
+                        <p className="sm:text-sm text-xs">TempMax</p>
                       </div>
-                      <span className="sm:text-base text-sm">TempMin</span>
+                      <div className="flex items-center sm:mt-4 mt-2">
+                        <p className="sm:text-4xl text-2xl">{weather.main.temp_min}&deg;</p>
+                        <div className="sm:w-4 w-3 border-t-2 mx-3 border-pink-600"></div>
+                        <p className="sm:text-sm text-xs">TempMin</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center sm:space-x-6 space-x-4">
+                    <div className="flex flex-col items-center sm:space-y-3 space-y-2">
+                      <div className="sm:h-12 sm:w-12 h-10 w-10 bg-blue-500 rounded-full"></div>
+                      <p className="sm:text-sm text-xs">Humadity(%)</p>
+                      <div className="w-4 border-t-2 border-pink-600"></div>
+                      <p className="sm:text-2xl text-xl">{weather.main.humidity}</p>
+                    </div>
+                    <div className="flex flex-col items-center sm:space-y-3 space-y-2">
+                      <div className="sm:h-12 sm:w-12 h-10 w-10 bg-green-500 rounded-full"></div>
+                      <p className="sm:text-sm text-xs">Wind(km/h)</p>
+                      <div className="w-4 border-t-2 border-pink-600"></div>
+                      <p className="sm:text-2xl text-xl">{weather.wind.speed}</p>
+                    </div>
+                    <div className="sm:flex hidden flex-col items-center sm:space-y-3 space-y-2">
+                      <div className="sm:h-12 sm:w-12 h-10 w-10 bg-yellow-500 rounded-full"></div>
+                      <p className="sm:text-sm text-xs">Cloudy(%)</p>
+                      <div className="w-4 border-t-2 border-pink-600"></div>
+                      <p className="sm:text-2xl text-xl">{weather.clouds.all}</p>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div className="flex  text-center">
-                <div className="flex flex-col items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-blue-500 bg-opacity-30">
-                  </div>
-                  <p className="mt-3 font-semibold sm:text-sm text-xs">Humidity(%)</p>
-                  <div className="sm:w-4 w-3 sm:my-2 my-2 border-t border-pink-500"></div>
-                  <p className="sm:text-2xl text-xl flex items-center">{weather.main.humidity}&deg;</p>
-                </div>
-                <div className="flex flex-col items-center justify-center mx-6">
-                  <div className="w-12 h-12 rounded-full bg-green-500 bg-opacity-30">
-                  </div>
-                  <p className="mt-3 font-semibold sm:text-sm text-xs">Wind(km/h)</p>
-                  <div className="sm:w-4 w-3 sm:my-2 my-2 border-t border-pink-500"></div>
-                  <p className="sm:text-2xl text-xl flex items-center">{weather.wind.speed}</p>
-                </div>
-                <div className="sm:flex hidden flex-col items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-blue-200 bg-opacity-30">
-                  </div>
-                  <p className=" mt-3 font-semibold sm:text-sm text-xs">Cloudy(%)</p>
-                  <div className="sm:w-4 w-3 sm:my-2 my-2 border-t border-pink-500"></div>
-                  <p className="sm:text-2xl text-xl flex items-center">{weather.clouds.all}</p>
-                </div>
-              </div>
-            </div> 
+            </div>
           ) : ('')} 
           {/* batas */}
         </div>
